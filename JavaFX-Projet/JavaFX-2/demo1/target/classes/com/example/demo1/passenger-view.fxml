@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.demo1.client.viewControllers.PassengerViewController"
+            style="-fx-background-color: #f0f0f0;"  prefWidth="700" prefHeight="600">
+
+    <top>
+        <Label text="Voyage Voyage International (Client1)"
+               style="-fx-font-size: 16; -fx-font-weight: bold; -fx-padding: 10;"
+               BorderPane.alignment="CENTER"/>
+    </top>
+
+    <center>
+        <HBox spacing="15" >
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+
+            <!-- Liste des passagers par catégorie -->
+            <VBox spacing="10" prefWidth="250" style="-fx-border-color: #cccccc; -fx-background-color: white; -fx-padding: 10;">
+                <!-- Adultes -->
+                <Label text="Adultes" style="-fx-font-weight: bold;"/>
+                <ListView fx:id="adultListView" prefHeight="100"/>
+                <!-- Enfants -->
+                <Label text="Enfants" style="-fx-font-weight: bold;"/>
+                <ListView fx:id="childListView" prefHeight="100"/>
+                <!-- Bébés -->
+                <Label text="Bébés" style="-fx-font-weight: bold;"/>
+                <ListView fx:id="babyListView" prefHeight="100"/>
+            </VBox>
+
+            <!-- Formulaire des détails du passager -->
+            <VBox spacing="15" HBox.hgrow="ALWAYS" style="-fx-padding: 10;">
+                <GridPane hgap="15" vgap="15">
+                    <!-- Row 0 -->
+                    <Label text="ID Number:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                    <TextField fx:id="idField" GridPane.columnIndex="1" GridPane.rowIndex="0" GridPane.columnSpan="3"/>
+
+                    <!-- Row 1 -->
+                    <Label text="First Name:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                    <TextField fx:id="firstNameField" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.columnSpan="3"/>
+
+                    <!-- Row 2 -->
+                    <Label text="Last Name:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                    <TextField fx:id="lastNameField" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                    <Label text="Age:" GridPane.columnIndex="2" GridPane.rowIndex="2"/>
+                    <TextField fx:id="ageField" GridPane.columnIndex="3" GridPane.rowIndex="2" prefWidth="60"/>
+
+                    <!-- Row 3 -->
+                    <Label text="Address:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+                    <TextField fx:id="addressField" GridPane.columnIndex="1" GridPane.rowIndex="3"
+                               GridPane.columnSpan="3" promptText="Number, Street, City, ZIP"/>
+
+                    <!-- Row 4 -->
+                    <Label text="Country:" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+                    <ComboBox fx:id="countryCombo" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+
+                    <!-- Row 5 -->
+                    <Label text="Meal Selection:" GridPane.columnIndex="2" GridPane.rowIndex="4"/>
+                    <ComboBox fx:id="mealCombo" GridPane.columnIndex="3" GridPane.rowIndex="4"/>
+
+                    <!-- Row 6 -->
+                    <Label text="Options:" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
+                    <CheckBox fx:id="luggageCheckBox" text="20kg luggage"
+                              GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+                </GridPane>
+
+                <HBox spacing="15" alignment="BOTTOM_RIGHT" VBox.vgrow="ALWAYS">
+                    <Button fx:id="applyButton" text="Apply" onAction="#handleApply"/>
+                    <Button fx:id="nextButton" text="Next" onAction="#handleNext"/>
+                </HBox>
+            </VBox>
+        </HBox>
+    </center>
+</BorderPane>

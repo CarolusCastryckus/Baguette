@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Pos?>
+
+<?import javafx.geometry.Insets?>
+<VBox spacing="20" alignment="CENTER" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.demo1.client.viewControllers.LoginViewController">
+
+    <!-- ajoute du padding autour de tout le conteneur -->
+    <padding>
+    <Insets top="30" right="30" bottom="30" left="30"/>
+    </padding>
+
+    <!-- Champ pour le nom d'utilisateur avec une largeur fixe et des limites -->
+    <TextField fx:id="usernameField" promptText="Nom d'utilisateur" prefWidth="250" maxWidth="250" minWidth="150"/>
+
+    <!-- Champ pour le mot de passe avec une largeur fixe et des limites -->
+    <PasswordField fx:id="passwordField" promptText="Mot de passe" prefWidth="250" maxWidth="250" minWidth="150"/>
+
+    <!-- Bouton de connexion avec une largeur fixe -->
+    <Button fx:id="btnLogin" text="Se connecter" onAction="#handleLogin" prefWidth="250"/>
+</VBox>

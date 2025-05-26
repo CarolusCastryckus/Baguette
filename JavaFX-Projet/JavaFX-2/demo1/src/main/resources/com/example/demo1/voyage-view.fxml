@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.* ?>
+<?import javafx.scene.layout.* ?>
+<?import javafx.scene.text.* ?>
+
+<TabPane xmlns="http://javafx.com/javafx/11.0.1"
+         xmlns:fx="http://javafx.com/fxml/1"
+         fx:controller="com.example.demo1.client.viewControllers.VoyageViewController"
+         prefWidth="700" prefHeight="600">
+
+    <!-- Onglet 1 : Recherche de vols -->
+    <tabs>
+        <Tab text="Recherche de vols">
+            <VBox spacing="10" alignment="TOP_CENTER" style="-fx-padding:20">
+                <Text text="Recherche de voyage"
+                      style="-fx-font-size:20; -fx-font-weight:bold;"/>
+                <GridPane hgap="10" vgap="10">
+                    <Label text="Type de voyage:"        GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                    <ChoiceBox fx:id="tripTypeChoice"   GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+                    <Label text="De:"                  GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                    <ComboBox fx:id="fromCombo"         GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+                    <Label text="À:"                   GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                    <ComboBox fx:id="toCombo"           GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+                    <Label text="Date de départ:"      GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+                    <DatePicker fx:id="departureDatePicker" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+
+                    <Label text="Adultes:"             GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+                    <Spinner fx:id="adultSpinner"       GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+
+                    <Label text="Enfants:"             GridPane.columnIndex="0" GridPane.rowIndex="5"/>
+                    <Spinner fx:id="childSpinner"       GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+
+                    <Label text="Bébés:"               GridPane.columnIndex="0" GridPane.rowIndex="6"/>
+                    <Spinner fx:id="babySpinner"        GridPane.columnIndex="1" GridPane.rowIndex="6"/>
+
+                    <Label text="Classe:"              GridPane.columnIndex="0" GridPane.rowIndex="7"/>
+                    <ChoiceBox fx:id="seatTypeChoice"   GridPane.columnIndex="1" GridPane.rowIndex="7"/>
+                </GridPane>
+
+                <Button fx:id="researchButton" text="Rechercher"
+                        style="-fx-font-weight:bold;"/>
+
+                <TableView fx:id="flightsTable" style="-fx-pref-height:300">
+                    <columns>
+                        <TableColumn fx:id="flightNumberColumn" text="Vol"/>
+                        <TableColumn fx:id="airlineColumn"      text="Compagnie"/>
+                        <TableColumn fx:id="departureColumn"    text="Départ"/>
+                        <TableColumn fx:id="arrivalColumn"      text="Arrivée"/>
+                        <TableColumn fx:id="timeColumn"         text="Durée"/>
+                        <TableColumn fx:id="priceColumn"        text="Prix"/>
+                        <TableColumn fx:id="departureDateColumn" text="Date de départ"/>
+                    </columns>
+                </TableView>
+
+                <HBox spacing="15" alignment="BOTTOM_RIGHT" VBox.vgrow="ALWAYS">
+                    <Button fx:id="logoutButton" text="Retour"/>
+                    <Button fx:id="nextButton"   text="Suite"/>
+                </HBox>
+            </VBox>
+        </Tab>
+
+        <!-- Onglet 2 : Mes réservations -->
+        <Tab text="Mes réservations">
+            <VBox spacing="10" alignment="TOP_CENTER" style="-fx-padding:20">
+                <Text text="Mes réservations"
+                      style="-fx-font-size:20; -fx-font-weight:bold;"/>
+
+                <TableView fx:id="reservationTable" prefHeight="400" prefWidth="600">
+                    <columns>
+                        <TableColumn fx:id="resFlightColumn" text="Vol"/>
+                        <TableColumn fx:id="resDateColumn"   text="Date"/>
+                        <TableColumn fx:id="resSeatsColumn"  text="Sièges réservés"/>
+                    </columns>
+                </TableView>
+
+                <Button fx:id="btnCancel" text="Annuler réservation"
+                        style="-fx-font-weight:bold;"/>
+            </VBox>
+        </Tab>
+    </tabs>
+</TabPane>

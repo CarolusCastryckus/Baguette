@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Pos?>
+
+<?import javafx.geometry.Insets?>
+<VBox spacing="15" alignment="TOP_CENTER" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.demo1.client.viewControllers.ClientViewController" prefWidth="700" prefHeight="600">
+
+    <!-- padding intérieur pour aérer le contenu -->
+    <padding>
+      <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <!-- Titre de la fenêtre -->
+    <Label text="Client Management" style="-fx-font-size: 18px;"/>
+
+    <!-- Formulaire pour le client -->
+    <VBox spacing="10" alignment="CENTER">
+        <TextField fx:id="nationalIdField" promptText="ID Number" prefWidth="220" maxWidth="220" minWidth="150"/>
+        <TextField fx:id="firstNameField" promptText="First Name" prefWidth="220" maxWidth="220" minWidth="150"/>
+        <TextField fx:id="lastNameField" promptText="Last Name" prefWidth="220" maxWidth="220" minWidth="150"/>
+        <TextField fx:id="addressField" promptText="Address (Street, City, Zip)" prefWidth="220" maxWidth="220" minWidth="150"/>
+        <TextField fx:id="countryField" promptText="Country" prefWidth="220" maxWidth="220" minWidth="150"/>
+
+        <!-- ComboBox pour le repas -->
+        <ComboBox fx:id="mealComboBox" promptText="Sélectionnez un repas" prefWidth="220" maxWidth="220" minWidth="150"/>
+
+        <!-- CheckBox pour le bagage de 20kg -->
+        <HBox spacing="10" alignment="CENTER">
+            <CheckBox fx:id="luggageCheckBox" text="20kg Luggage"/>
+        </HBox>
+    </VBox>
+
+    <!-- Groupement des boutons d'action -->
+    <HBox spacing="20" alignment="CENTER">
+        <Button fx:id="createClientButton" text="Create Client" onAction="#handleCreateClient" prefWidth="100"/>
+        <Button fx:id="updateClientButton" text="Update" onAction="#handleUpdateClient" prefWidth="100" disable="true"/>
+        <Button fx:id="deleteClientButton" text="Delete" onAction="#handleDeleteClient" prefWidth="100" disable="true"/>
+    </HBox>
+
+    <!-- Champ de recherche par ID -->
+    <HBox spacing="10" alignment="CENTER">
+        <TextField fx:id="searchField" promptText="Rechercher par ID" prefWidth="220" maxWidth="220" minWidth="150"/>
+        <Button text="Search" onAction="#handleSearchClient" prefWidth="100"/>
+    </HBox>
+
+    <!-- Table de données des clients -->
+    <TableView fx:id="clientTable" prefHeight="200" prefWidth="500">
+        <columns>
+            <TableColumn text="ID" fx:id="nationalIdColumn" />
+            <TableColumn text="First Name" fx:id="firstNameColumn" />
+            <TableColumn text="Last Name" fx:id="lastNameColumn" />
+            <TableColumn text="Address" fx:id="addressColumn" />
+            <TableColumn text="Country" fx:id="countryColumn" />
+            <TableColumn text="Meal" fx:id="mealColumn" />
+            <TableColumn text="Luggage" fx:id="luggageColumn" />
+        </columns>
+    </TableView>
+
+    <!-- Message de confirmation -->
+    <Label fx:id="messageLabel" text="" style="-fx-text-fill: green;"/>
+
+    <!-- Bouton de page suivante -->
+    <Button fx:id="btnToVoyage" text="Next" />
+</VBox>
